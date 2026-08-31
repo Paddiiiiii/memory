@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://memoir.local/schemas/place.json",
+  "title": "Place",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "aliases", "evidence"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "aliases": { "type": "array", "items": { "type": "string" } },
+    "place_type": {
+      "type": ["string", "null"],
+      "enum": [null, "city", "province", "country", "home", "workplace", "school", "other"]
+    },
+    "importance": { "type": "number", "minimum": 0, "maximum": 1 },
+    "evidence": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    }
+  }
+}

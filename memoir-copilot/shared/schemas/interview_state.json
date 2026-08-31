@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://memoir.local/schemas/interview_state.json",
+  "title": "InterviewState",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "scope", "timeline", "people", "places", "events", "relationships", "questions", "first_experiences", "open_loops", "gaps", "conflicts", "themes", "coverage"],
+  "properties": {
+    "version": { "type": "integer", "minimum": 1 },
+    "scope": { "type": "string", "enum": ["session_live", "session_final", "subject_canonical"] },
+    "timeline": { "type": "array", "items": { "type": "object" } },
+    "people": { "type": "array", "items": { "$ref": "person.json" } },
+    "places": { "type": "array", "items": { "$ref": "place.json" } },
+    "events": { "type": "array", "items": { "$ref": "event.json" } },
+    "relationships": { "type": "array", "items": { "type": "object" } },
+    "questions": { "type": "array", "items": { "type": "object" } },
+    "first_experiences": { "type": "array", "items": { "type": "object" } },
+    "open_loops": { "type": "array", "items": { "type": "object" } },
+    "gaps": { "type": "array", "items": { "type": "object" } },
+    "conflicts": { "type": "array", "items": { "type": "object" } },
+    "themes": { "type": "array", "items": { "type": "object" } },
+    "coverage": { "type": "object" }
+  }
+}

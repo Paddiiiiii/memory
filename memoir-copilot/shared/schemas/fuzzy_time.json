@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://memoir.local/schemas/fuzzy_time.json",
+  "title": "FuzzyTime",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["raw", "precision", "certainty"],
+  "properties": {
+    "raw": { "type": "string" },
+    "start": { "type": ["string", "null"], "format": "date" },
+    "end": { "type": ["string", "null"], "format": "date" },
+    "earliest": { "type": ["string", "null"], "format": "date" },
+    "latest": { "type": ["string", "null"], "format": "date" },
+    "precision": {
+      "type": "string",
+      "enum": ["day", "month", "year", "approx_year", "decade", "era", "unknown"]
+    },
+    "certainty": {
+      "type": "string",
+      "enum": ["certain", "probable", "approximate", "uncertain"]
+    }
+  }
+}

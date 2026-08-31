@@ -1,0 +1,76 @@
+openapi: 3.1.0
+info:
+  title: Memoir Copilot API
+  version: 0.1.0
+  description: V1 draft — freeze after review. Paths mirror FastAPI routers under /v1.
+servers:
+  - url: http://127.0.0.1:8000
+paths:
+  /health:
+    get:
+      summary: Health
+      responses:
+        "200":
+          description: OK
+  /v1/auth/login:
+    post:
+      summary: Login
+      responses:
+        "200":
+          description: Token pair
+  /v1/auth/refresh:
+    post:
+      summary: Refresh tokens (rotation)
+      responses:
+        "200":
+          description: Token pair
+  /v1/projects:
+    get:
+      summary: List projects
+      responses:
+        "200":
+          description: Project list
+    post:
+      summary: Create project + subject
+      responses:
+        "200":
+          description: Created
+  /v1/sessions/{session_id}/start:
+    post:
+      summary: Start or resume recording
+      parameters:
+        - name: session_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: Session
+  /v1/sessions/{session_id}/finishing-complete:
+    post:
+      summary: Local finishing hard-path done → processing
+      parameters:
+        - name: session_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: Session processing
+  /v1/asr/realtime-ticket:
+    post:
+      summary: Short-lived Tencent ASR ticket for desktop WSS
+      responses:
+        "200":
+          description: Ticket
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []

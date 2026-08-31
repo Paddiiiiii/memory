@@ -1,0 +1,12 @@
+{
+  "version": "sensitive_topics_v1",
+  "topics": [
+    {"id": "death", "label": "死亡", "tags": ["去世", "葬礼", "临终"]},
+    {"id": "trauma", "label": "创伤", "tags": ["创伤", "惊吓", "噩梦"]},
+    {"id": "severe_illness", "label": "严重疾病", "tags": ["癌症", "重病", "住院"]},
+    {"id": "family_conflict", "label": "家庭冲突", "tags": ["吵架", "断绝", "家暴"]},
+    {"id": "money_dispute", "label": "金钱纠纷", "tags": ["欠债", "遗产纠纷", "被骗钱"]},
+    {"id": "violence", "label": "暴力", "tags": ["打架", "殴打", "战争伤亡"]},
+    {"id": "private_relationship", "label": "私密关系", "tags": ["出轨", "私生子", "秘密恋爱"]}
+  ]
+}

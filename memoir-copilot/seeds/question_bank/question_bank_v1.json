@@ -1,0 +1,3768 @@
+{
+  "version": "question_bank_v1",
+  "topics": [
+    {
+      "id": "topic_001",
+      "name": "家庭与祖辈",
+      "parent_id": null
+    },
+    {
+      "id": "topic_002",
+      "name": "祖父母",
+      "parent_id": "topic_001"
+    },
+    {
+      "id": "topic_003",
+      "name": "父母",
+      "parent_id": "topic_001"
+    },
+    {
+      "id": "topic_004",
+      "name": "兄弟姐妹",
+      "parent_id": "topic_001"
+    },
+    {
+      "id": "topic_005",
+      "name": "家族故事",
+      "parent_id": "topic_001"
+    },
+    {
+      "id": "topic_006",
+      "name": "童年",
+      "parent_id": null
+    },
+    {
+      "id": "topic_007",
+      "name": "游戏",
+      "parent_id": "topic_006"
+    },
+    {
+      "id": "topic_008",
+      "name": "邻里",
+      "parent_id": "topic_006"
+    },
+    {
+      "id": "topic_009",
+      "name": "节日",
+      "parent_id": "topic_006"
+    },
+    {
+      "id": "topic_010",
+      "name": "童年住所",
+      "parent_id": "topic_006"
+    },
+    {
+      "id": "topic_011",
+      "name": "教育",
+      "parent_id": null
+    },
+    {
+      "id": "topic_012",
+      "name": "入学",
+      "parent_id": "topic_011"
+    },
+    {
+      "id": "topic_013",
+      "name": "老师",
+      "parent_id": "topic_011"
+    },
+    {
+      "id": "topic_014",
+      "name": "同学",
+      "parent_id": "topic_011"
+    },
+    {
+      "id": "topic_015",
+      "name": "辍学或升学",
+      "parent_id": "topic_011"
+    },
+    {
+      "id": "topic_016",
+      "name": "青少年",
+      "parent_id": null
+    },
+    {
+      "id": "topic_017",
+      "name": "志向",
+      "parent_id": "topic_016"
+    },
+    {
+      "id": "topic_018",
+      "name": "友谊",
+      "parent_id": "topic_016"
+    },
+    {
+      "id": "topic_019",
+      "name": "时代氛围",
+      "parent_id": "topic_016"
+    },
+    {
+      "id": "topic_020",
+      "name": "工作",
+      "parent_id": null
+    },
+    {
+      "id": "topic_021",
+      "name": "第一份工作",
+      "parent_id": "topic_020"
+    },
+    {
+      "id": "topic_022",
+      "name": "同事",
+      "parent_id": "topic_020"
+    },
+    {
+      "id": "topic_023",
+      "name": "收入",
+      "parent_id": "topic_020"
+    },
+    {
+      "id": "topic_024",
+      "name": "职业转折",
+      "parent_id": "topic_020"
+    },
+    {
+      "id": "topic_025",
+      "name": "婚恋",
+      "parent_id": null
+    },
+    {
+      "id": "topic_026",
+      "name": "相识",
+      "parent_id": "topic_025"
+    },
+    {
+      "id": "topic_027",
+      "name": "恋爱",
+      "parent_id": "topic_025"
+    },
+    {
+      "id": "topic_028",
+      "name": "结婚",
+      "parent_id": "topic_025"
+    },
+    {
+      "id": "topic_029",
+      "name": "夫妻生活",
+      "parent_id": "topic_025"
+    },
+    {
+      "id": "topic_030",
+      "name": "子女",
+      "parent_id": null
+    },
+    {
+      "id": "topic_031",
+      "name": "生育",
+      "parent_id": "topic_030"
+    },
+    {
+      "id": "topic_032",
+      "name": "养育",
+      "parent_id": "topic_030"
+    },
+    {
+      "id": "topic_033",
+      "name": "亲子关系",
+      "parent_id": "topic_030"
+    },
+    {
+      "id": "topic_034",
+      "name": "居住与迁移",
+      "parent_id": null
+    },
+    {
+      "id": "topic_035",
+      "name": "搬家",
+      "parent_id": "topic_034"
+    },
+    {
+      "id": "topic_036",
+      "name": "进城",
+      "parent_id": "topic_034"
+    },
+    {
+      "id": "topic_037",
+      "name": "回乡",
+      "parent_id": "topic_034"
+    },
+    {
+      "id": "topic_038",
+      "name": "重大转折",
+      "parent_id": null
+    },
+    {
+      "id": "topic_039",
+      "name": "社会运动",
+      "parent_id": "topic_038"
+    },
+    {
+      "id": "topic_040",
+      "name": "政策变化",
+      "parent_id": "topic_038"
+    },
+    {
+      "id": "topic_041",
+      "name": "意外",
+      "parent_id": "topic_038"
+    },
+    {
+      "id": "topic_042",
+      "name": "转机",
+      "parent_id": "topic_038"
+    },
+    {
+      "id": "topic_043",
+      "name": "时代生活",
+      "parent_id": null
+    },
+    {
+      "id": "topic_044",
+      "name": "物资",
+      "parent_id": "topic_043"
+    },
+    {
+      "id": "topic_045",
+      "name": "交通",
+      "parent_id": "topic_043"
+    },
+    {
+      "id": "topic_046",
+      "name": "媒体",
+      "parent_id": "topic_043"
+    },
+    {
+      "id": "topic_047",
+      "name": "日常",
+      "parent_id": "topic_043"
+    },
+    {
+      "id": "topic_048",
+      "name": "重要人物",
+      "parent_id": null
+    },
+    {
+      "id": "topic_049",
+      "name": "师傅",
+      "parent_id": "topic_048"
+    },
+    {
+      "id": "topic_050",
+      "name": "领导",
+      "parent_id": "topic_048"
+    },
+    {
+      "id": "topic_051",
+      "name": "朋友",
+      "parent_id": "topic_048"
+    },
+    {
+      "id": "topic_052",
+      "name": "贵人",
+      "parent_id": "topic_048"
+    },
+    {
+      "id": "topic_053",
+      "name": "老年与退休",
+      "parent_id": null
+    },
+    {
+      "id": "topic_054",
+      "name": "退休",
+      "parent_id": "topic_053"
+    },
+    {
+      "id": "topic_055",
+      "name": "晚年生活",
+      "parent_id": "topic_053"
+    },
+    {
+      "id": "topic_056",
+      "name": "健康",
+      "parent_id": "topic_053"
+    },
+    {
+      "id": "topic_057",
+      "name": "人生感悟",
+      "parent_id": null
+    },
+    {
+      "id": "topic_058",
+      "name": "后悔",
+      "parent_id": "topic_057"
+    },
+    {
+      "id": "topic_059",
+      "name": "骄傲",
+      "parent_id": "topic_057"
+    },
+    {
+      "id": "topic_060",
+      "name": "想对后人说",
+      "parent_id": "topic_057"
+    },
+    {
+      "id": "topic_061",
+      "name": "人生第一次",
+      "parent_id": null
+    },
+    {
+      "id": "topic_062",
+      "name": "FIRST_SCHOOL",
+      "parent_id": "topic_061"
+    },
+    {
+      "id": "topic_063",
+      "name": "FIRST_JOB",
+      "parent_id": "topic_061"
+    },
+    {
+      "id": "topic_064",
+      "name": "FIRST_SALARY",
+      "parent_id": "topic_061"
+    },
+    {
+      "id": "topic_065",
+      "name": "FIRST_LEAVE_HOME",
+      "parent_id": "topic_061"
+    },
+    {
+      "id": "topic_066",
+      "name": "FIRST_TRIP_ALONE",
+      "parent_id": "topic_061"
+    },
+    {
+      "id": "topic_067",
+      "name": "FIRST_LOVE",
+      "parent_id": "topic_061"
+    },
+    {
+      "id": "topic_068",
+      "name": "FIRST_MARRIAGE",
+      "parent_id": "topic_061"
+    },
+    {
+      "id": "topic_069",
+      "name": "FIRST_PARENT",
+      "parent_id": "topic_061"
+    },
+    {
+      "id": "topic_070",
+      "name": "FIRST_HOME",
+      "parent_id": "topic_061"
+    },
+    {
+      "id": "topic_071",
+      "name": "FIRST_MAJOR_PURCHASE",
+      "parent_id": "topic_061"
+    },
+    {
+      "id": "topic_072",
+      "name": "FIRST_SUCCESS",
+      "parent_id": "topic_061"
+    },
+    {
+      "id": "topic_073",
+      "name": "FIRST_FAILURE",
+      "parent_id": "topic_061"
+    },
+    {
+      "id": "topic_074",
+      "name": "FIRST_LOSS",
+      "parent_id": "topic_061"
+    },
+    {
+      "id": "topic_075",
+      "name": "FIRST_RETIREMENT",
+      "parent_id": "topic_061"
+    },
+    {
+      "id": "topic_076",
+      "name": "FIRST_GRANDPARENT",
+      "parent_id": "topic_061"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q_001",
+      "text": "能聊聊祖父母吗？",
+      "primary_topic": "topic_002",
+      "tags": [
+        "家庭与祖辈",
+        "祖父母"
+      ],
+      "importance": 0.63,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_002",
+      "text": "关于祖父母，您印象最深的一件事是什么？",
+      "primary_topic": "topic_002",
+      "tags": [
+        "家庭与祖辈",
+        "祖父母"
+      ],
+      "importance": 0.71,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_003",
+      "text": "能聊聊父母吗？",
+      "primary_topic": "topic_003",
+      "tags": [
+        "家庭与祖辈",
+        "父母"
+      ],
+      "importance": 0.79,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_004",
+      "text": "关于父母，您印象最深的一件事是什么？",
+      "primary_topic": "topic_003",
+      "tags": [
+        "家庭与祖辈",
+        "父母"
+      ],
+      "importance": 0.87,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_005",
+      "text": "能聊聊兄弟姐妹吗？",
+      "primary_topic": "topic_004",
+      "tags": [
+        "家庭与祖辈",
+        "兄弟姐妹"
+      ],
+      "importance": 0.55,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_006",
+      "text": "关于兄弟姐妹，您印象最深的一件事是什么？",
+      "primary_topic": "topic_004",
+      "tags": [
+        "家庭与祖辈",
+        "兄弟姐妹"
+      ],
+      "importance": 0.63,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_007",
+      "text": "能聊聊家族故事吗？",
+      "primary_topic": "topic_005",
+      "tags": [
+        "家庭与祖辈",
+        "家族故事"
+      ],
+      "importance": 0.71,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_008",
+      "text": "关于家族故事，您印象最深的一件事是什么？",
+      "primary_topic": "topic_005",
+      "tags": [
+        "家庭与祖辈",
+        "家族故事"
+      ],
+      "importance": 0.79,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_009",
+      "text": "能聊聊游戏吗？",
+      "primary_topic": "topic_007",
+      "tags": [
+        "童年",
+        "游戏"
+      ],
+      "importance": 0.87,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_010",
+      "text": "关于游戏，您印象最深的一件事是什么？",
+      "primary_topic": "topic_007",
+      "tags": [
+        "童年",
+        "游戏"
+      ],
+      "importance": 0.55,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_011",
+      "text": "能聊聊邻里吗？",
+      "primary_topic": "topic_008",
+      "tags": [
+        "童年",
+        "邻里"
+      ],
+      "importance": 0.63,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_012",
+      "text": "关于邻里，您印象最深的一件事是什么？",
+      "primary_topic": "topic_008",
+      "tags": [
+        "童年",
+        "邻里"
+      ],
+      "importance": 0.71,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_013",
+      "text": "能聊聊节日吗？",
+      "primary_topic": "topic_009",
+      "tags": [
+        "童年",
+        "节日"
+      ],
+      "importance": 0.79,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_014",
+      "text": "关于节日，您印象最深的一件事是什么？",
+      "primary_topic": "topic_009",
+      "tags": [
+        "童年",
+        "节日"
+      ],
+      "importance": 0.87,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_015",
+      "text": "能聊聊童年住所吗？",
+      "primary_topic": "topic_010",
+      "tags": [
+        "童年",
+        "童年住所"
+      ],
+      "importance": 0.55,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_016",
+      "text": "关于童年住所，您印象最深的一件事是什么？",
+      "primary_topic": "topic_010",
+      "tags": [
+        "童年",
+        "童年住所"
+      ],
+      "importance": 0.63,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_017",
+      "text": "能聊聊入学吗？",
+      "primary_topic": "topic_012",
+      "tags": [
+        "教育",
+        "入学"
+      ],
+      "importance": 0.71,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_018",
+      "text": "关于入学，您印象最深的一件事是什么？",
+      "primary_topic": "topic_012",
+      "tags": [
+        "教育",
+        "入学"
+      ],
+      "importance": 0.79,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_019",
+      "text": "能聊聊老师吗？",
+      "primary_topic": "topic_013",
+      "tags": [
+        "教育",
+        "老师"
+      ],
+      "importance": 0.87,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_020",
+      "text": "关于老师，您印象最深的一件事是什么？",
+      "primary_topic": "topic_013",
+      "tags": [
+        "教育",
+        "老师"
+      ],
+      "importance": 0.55,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_021",
+      "text": "能聊聊同学吗？",
+      "primary_topic": "topic_014",
+      "tags": [
+        "教育",
+        "同学"
+      ],
+      "importance": 0.63,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_022",
+      "text": "关于同学，您印象最深的一件事是什么？",
+      "primary_topic": "topic_014",
+      "tags": [
+        "教育",
+        "同学"
+      ],
+      "importance": 0.71,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_023",
+      "text": "能聊聊辍学或升学吗？",
+      "primary_topic": "topic_015",
+      "tags": [
+        "教育",
+        "辍学或升学"
+      ],
+      "importance": 0.79,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_024",
+      "text": "关于辍学或升学，您印象最深的一件事是什么？",
+      "primary_topic": "topic_015",
+      "tags": [
+        "教育",
+        "辍学或升学"
+      ],
+      "importance": 0.87,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_025",
+      "text": "能聊聊志向吗？",
+      "primary_topic": "topic_017",
+      "tags": [
+        "青少年",
+        "志向"
+      ],
+      "importance": 0.55,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_026",
+      "text": "关于志向，您印象最深的一件事是什么？",
+      "primary_topic": "topic_017",
+      "tags": [
+        "青少年",
+        "志向"
+      ],
+      "importance": 0.63,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_027",
+      "text": "能聊聊友谊吗？",
+      "primary_topic": "topic_018",
+      "tags": [
+        "青少年",
+        "友谊"
+      ],
+      "importance": 0.71,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_028",
+      "text": "关于友谊，您印象最深的一件事是什么？",
+      "primary_topic": "topic_018",
+      "tags": [
+        "青少年",
+        "友谊"
+      ],
+      "importance": 0.79,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_029",
+      "text": "能聊聊时代氛围吗？",
+      "primary_topic": "topic_019",
+      "tags": [
+        "青少年",
+        "时代氛围"
+      ],
+      "importance": 0.87,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_030",
+      "text": "关于时代氛围，您印象最深的一件事是什么？",
+      "primary_topic": "topic_019",
+      "tags": [
+        "青少年",
+        "时代氛围"
+      ],
+      "importance": 0.55,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_031",
+      "text": "能聊聊第一份工作吗？",
+      "primary_topic": "topic_021",
+      "tags": [
+        "工作",
+        "第一份工作"
+      ],
+      "importance": 0.63,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_032",
+      "text": "关于第一份工作，您印象最深的一件事是什么？",
+      "primary_topic": "topic_021",
+      "tags": [
+        "工作",
+        "第一份工作"
+      ],
+      "importance": 0.71,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_033",
+      "text": "能聊聊同事吗？",
+      "primary_topic": "topic_022",
+      "tags": [
+        "工作",
+        "同事"
+      ],
+      "importance": 0.79,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_034",
+      "text": "关于同事，您印象最深的一件事是什么？",
+      "primary_topic": "topic_022",
+      "tags": [
+        "工作",
+        "同事"
+      ],
+      "importance": 0.87,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_035",
+      "text": "能聊聊收入吗？",
+      "primary_topic": "topic_023",
+      "tags": [
+        "工作",
+        "收入"
+      ],
+      "importance": 0.55,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_036",
+      "text": "关于收入，您印象最深的一件事是什么？",
+      "primary_topic": "topic_023",
+      "tags": [
+        "工作",
+        "收入"
+      ],
+      "importance": 0.63,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_037",
+      "text": "能聊聊职业转折吗？",
+      "primary_topic": "topic_024",
+      "tags": [
+        "工作",
+        "职业转折"
+      ],
+      "importance": 0.71,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_038",
+      "text": "关于职业转折，您印象最深的一件事是什么？",
+      "primary_topic": "topic_024",
+      "tags": [
+        "工作",
+        "职业转折"
+      ],
+      "importance": 0.79,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_039",
+      "text": "能聊聊相识吗？",
+      "primary_topic": "topic_026",
+      "tags": [
+        "婚恋",
+        "相识"
+      ],
+      "importance": 0.87,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_040",
+      "text": "关于相识，您印象最深的一件事是什么？",
+      "primary_topic": "topic_026",
+      "tags": [
+        "婚恋",
+        "相识"
+      ],
+      "importance": 0.55,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_041",
+      "text": "能聊聊恋爱吗？",
+      "primary_topic": "topic_027",
+      "tags": [
+        "婚恋",
+        "恋爱"
+      ],
+      "importance": 0.63,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_042",
+      "text": "关于恋爱，您印象最深的一件事是什么？",
+      "primary_topic": "topic_027",
+      "tags": [
+        "婚恋",
+        "恋爱"
+      ],
+      "importance": 0.71,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_043",
+      "text": "能聊聊结婚吗？",
+      "primary_topic": "topic_028",
+      "tags": [
+        "婚恋",
+        "结婚"
+      ],
+      "importance": 0.79,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_044",
+      "text": "关于结婚，您印象最深的一件事是什么？",
+      "primary_topic": "topic_028",
+      "tags": [
+        "婚恋",
+        "结婚"
+      ],
+      "importance": 0.87,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_045",
+      "text": "能聊聊夫妻生活吗？",
+      "primary_topic": "topic_029",
+      "tags": [
+        "婚恋",
+        "夫妻生活"
+      ],
+      "importance": 0.55,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_046",
+      "text": "关于夫妻生活，您印象最深的一件事是什么？",
+      "primary_topic": "topic_029",
+      "tags": [
+        "婚恋",
+        "夫妻生活"
+      ],
+      "importance": 0.63,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_047",
+      "text": "能聊聊生育吗？",
+      "primary_topic": "topic_031",
+      "tags": [
+        "子女",
+        "生育"
+      ],
+      "importance": 0.71,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_048",
+      "text": "关于生育，您印象最深的一件事是什么？",
+      "primary_topic": "topic_031",
+      "tags": [
+        "子女",
+        "生育"
+      ],
+      "importance": 0.79,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_049",
+      "text": "能聊聊养育吗？",
+      "primary_topic": "topic_032",
+      "tags": [
+        "子女",
+        "养育"
+      ],
+      "importance": 0.87,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_050",
+      "text": "关于养育，您印象最深的一件事是什么？",
+      "primary_topic": "topic_032",
+      "tags": [
+        "子女",
+        "养育"
+      ],
+      "importance": 0.55,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_051",
+      "text": "能聊聊亲子关系吗？",
+      "primary_topic": "topic_033",
+      "tags": [
+        "子女",
+        "亲子关系"
+      ],
+      "importance": 0.63,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_052",
+      "text": "关于亲子关系，您印象最深的一件事是什么？",
+      "primary_topic": "topic_033",
+      "tags": [
+        "子女",
+        "亲子关系"
+      ],
+      "importance": 0.71,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_053",
+      "text": "能聊聊搬家吗？",
+      "primary_topic": "topic_035",
+      "tags": [
+        "居住与迁移",
+        "搬家"
+      ],
+      "importance": 0.79,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_054",
+      "text": "关于搬家，您印象最深的一件事是什么？",
+      "primary_topic": "topic_035",
+      "tags": [
+        "居住与迁移",
+        "搬家"
+      ],
+      "importance": 0.87,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_055",
+      "text": "能聊聊进城吗？",
+      "primary_topic": "topic_036",
+      "tags": [
+        "居住与迁移",
+        "进城"
+      ],
+      "importance": 0.55,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_056",
+      "text": "关于进城，您印象最深的一件事是什么？",
+      "primary_topic": "topic_036",
+      "tags": [
+        "居住与迁移",
+        "进城"
+      ],
+      "importance": 0.63,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_057",
+      "text": "能聊聊回乡吗？",
+      "primary_topic": "topic_037",
+      "tags": [
+        "居住与迁移",
+        "回乡"
+      ],
+      "importance": 0.71,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_058",
+      "text": "关于回乡，您印象最深的一件事是什么？",
+      "primary_topic": "topic_037",
+      "tags": [
+        "居住与迁移",
+        "回乡"
+      ],
+      "importance": 0.79,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_059",
+      "text": "能聊聊社会运动吗？",
+      "primary_topic": "topic_039",
+      "tags": [
+        "重大转折",
+        "社会运动"
+      ],
+      "importance": 0.87,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_060",
+      "text": "关于社会运动，您印象最深的一件事是什么？",
+      "primary_topic": "topic_039",
+      "tags": [
+        "重大转折",
+        "社会运动"
+      ],
+      "importance": 0.55,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_061",
+      "text": "能聊聊政策变化吗？",
+      "primary_topic": "topic_040",
+      "tags": [
+        "重大转折",
+        "政策变化"
+      ],
+      "importance": 0.63,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_062",
+      "text": "关于政策变化，您印象最深的一件事是什么？",
+      "primary_topic": "topic_040",
+      "tags": [
+        "重大转折",
+        "政策变化"
+      ],
+      "importance": 0.71,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_063",
+      "text": "能聊聊意外吗？",
+      "primary_topic": "topic_041",
+      "tags": [
+        "重大转折",
+        "意外"
+      ],
+      "importance": 0.79,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_064",
+      "text": "关于意外，您印象最深的一件事是什么？",
+      "primary_topic": "topic_041",
+      "tags": [
+        "重大转折",
+        "意外"
+      ],
+      "importance": 0.87,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_065",
+      "text": "能聊聊转机吗？",
+      "primary_topic": "topic_042",
+      "tags": [
+        "重大转折",
+        "转机"
+      ],
+      "importance": 0.55,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_066",
+      "text": "关于转机，您印象最深的一件事是什么？",
+      "primary_topic": "topic_042",
+      "tags": [
+        "重大转折",
+        "转机"
+      ],
+      "importance": 0.63,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_067",
+      "text": "能聊聊物资吗？",
+      "primary_topic": "topic_044",
+      "tags": [
+        "时代生活",
+        "物资"
+      ],
+      "importance": 0.71,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_068",
+      "text": "关于物资，您印象最深的一件事是什么？",
+      "primary_topic": "topic_044",
+      "tags": [
+        "时代生活",
+        "物资"
+      ],
+      "importance": 0.79,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_069",
+      "text": "能聊聊交通吗？",
+      "primary_topic": "topic_045",
+      "tags": [
+        "时代生活",
+        "交通"
+      ],
+      "importance": 0.87,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_070",
+      "text": "关于交通，您印象最深的一件事是什么？",
+      "primary_topic": "topic_045",
+      "tags": [
+        "时代生活",
+        "交通"
+      ],
+      "importance": 0.55,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_071",
+      "text": "能聊聊媒体吗？",
+      "primary_topic": "topic_046",
+      "tags": [
+        "时代生活",
+        "媒体"
+      ],
+      "importance": 0.63,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_072",
+      "text": "关于媒体，您印象最深的一件事是什么？",
+      "primary_topic": "topic_046",
+      "tags": [
+        "时代生活",
+        "媒体"
+      ],
+      "importance": 0.71,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_073",
+      "text": "能聊聊日常吗？",
+      "primary_topic": "topic_047",
+      "tags": [
+        "时代生活",
+        "日常"
+      ],
+      "importance": 0.79,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_074",
+      "text": "关于日常，您印象最深的一件事是什么？",
+      "primary_topic": "topic_047",
+      "tags": [
+        "时代生活",
+        "日常"
+      ],
+      "importance": 0.87,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_075",
+      "text": "能聊聊师傅吗？",
+      "primary_topic": "topic_049",
+      "tags": [
+        "重要人物",
+        "师傅"
+      ],
+      "importance": 0.55,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_076",
+      "text": "关于师傅，您印象最深的一件事是什么？",
+      "primary_topic": "topic_049",
+      "tags": [
+        "重要人物",
+        "师傅"
+      ],
+      "importance": 0.63,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_077",
+      "text": "能聊聊领导吗？",
+      "primary_topic": "topic_050",
+      "tags": [
+        "重要人物",
+        "领导"
+      ],
+      "importance": 0.71,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_078",
+      "text": "关于领导，您印象最深的一件事是什么？",
+      "primary_topic": "topic_050",
+      "tags": [
+        "重要人物",
+        "领导"
+      ],
+      "importance": 0.79,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_079",
+      "text": "能聊聊朋友吗？",
+      "primary_topic": "topic_051",
+      "tags": [
+        "重要人物",
+        "朋友"
+      ],
+      "importance": 0.87,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_080",
+      "text": "关于朋友，您印象最深的一件事是什么？",
+      "primary_topic": "topic_051",
+      "tags": [
+        "重要人物",
+        "朋友"
+      ],
+      "importance": 0.55,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_081",
+      "text": "能聊聊贵人吗？",
+      "primary_topic": "topic_052",
+      "tags": [
+        "重要人物",
+        "贵人"
+      ],
+      "importance": 0.63,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_082",
+      "text": "关于贵人，您印象最深的一件事是什么？",
+      "primary_topic": "topic_052",
+      "tags": [
+        "重要人物",
+        "贵人"
+      ],
+      "importance": 0.71,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_083",
+      "text": "能聊聊退休吗？",
+      "primary_topic": "topic_054",
+      "tags": [
+        "老年与退休",
+        "退休"
+      ],
+      "importance": 0.79,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_084",
+      "text": "关于退休，您印象最深的一件事是什么？",
+      "primary_topic": "topic_054",
+      "tags": [
+        "老年与退休",
+        "退休"
+      ],
+      "importance": 0.87,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_085",
+      "text": "能聊聊晚年生活吗？",
+      "primary_topic": "topic_055",
+      "tags": [
+        "老年与退休",
+        "晚年生活"
+      ],
+      "importance": 0.55,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_086",
+      "text": "关于晚年生活，您印象最深的一件事是什么？",
+      "primary_topic": "topic_055",
+      "tags": [
+        "老年与退休",
+        "晚年生活"
+      ],
+      "importance": 0.63,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_087",
+      "text": "能聊聊健康吗？",
+      "primary_topic": "topic_056",
+      "tags": [
+        "老年与退休",
+        "健康"
+      ],
+      "importance": 0.71,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_088",
+      "text": "关于健康，您印象最深的一件事是什么？",
+      "primary_topic": "topic_056",
+      "tags": [
+        "老年与退休",
+        "健康"
+      ],
+      "importance": 0.79,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_089",
+      "text": "能聊聊后悔吗？",
+      "primary_topic": "topic_058",
+      "tags": [
+        "人生感悟",
+        "后悔"
+      ],
+      "importance": 0.87,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_090",
+      "text": "关于后悔，您印象最深的一件事是什么？",
+      "primary_topic": "topic_058",
+      "tags": [
+        "人生感悟",
+        "后悔"
+      ],
+      "importance": 0.55,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_091",
+      "text": "能聊聊骄傲吗？",
+      "primary_topic": "topic_059",
+      "tags": [
+        "人生感悟",
+        "骄傲"
+      ],
+      "importance": 0.63,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_092",
+      "text": "关于骄傲，您印象最深的一件事是什么？",
+      "primary_topic": "topic_059",
+      "tags": [
+        "人生感悟",
+        "骄傲"
+      ],
+      "importance": 0.71,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_093",
+      "text": "能聊聊想对后人说吗？",
+      "primary_topic": "topic_060",
+      "tags": [
+        "人生感悟",
+        "想对后人说"
+      ],
+      "importance": 0.79,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_094",
+      "text": "关于想对后人说，您印象最深的一件事是什么？",
+      "primary_topic": "topic_060",
+      "tags": [
+        "人生感悟",
+        "想对后人说"
+      ],
+      "importance": 0.87,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_095",
+      "text": "还记得您的FIRST_SCHOOL吗？可以讲讲当时的情形吗？",
+      "primary_topic": "topic_062",
+      "tags": [
+        "人生第一次",
+        "FIRST_SCHOOL"
+      ],
+      "importance": 0.55,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": true,
+      "first_type": "FIRST_SCHOOL"
+    },
+    {
+      "id": "q_096",
+      "text": "还记得您的FIRST_JOB吗？可以讲讲当时的情形吗？",
+      "primary_topic": "topic_063",
+      "tags": [
+        "人生第一次",
+        "FIRST_JOB"
+      ],
+      "importance": 0.63,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": true,
+      "first_type": "FIRST_JOB"
+    },
+    {
+      "id": "q_097",
+      "text": "还记得您的FIRST_SALARY吗？可以讲讲当时的情形吗？",
+      "primary_topic": "topic_064",
+      "tags": [
+        "人生第一次",
+        "FIRST_SALARY"
+      ],
+      "importance": 0.71,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": true,
+      "first_type": "FIRST_SALARY"
+    },
+    {
+      "id": "q_098",
+      "text": "还记得您的FIRST_LEAVE_HOME吗？可以讲讲当时的情形吗？",
+      "primary_topic": "topic_065",
+      "tags": [
+        "人生第一次",
+        "FIRST_LEAVE_HOME"
+      ],
+      "importance": 0.79,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": true,
+      "first_type": "FIRST_LEAVE_HOME"
+    },
+    {
+      "id": "q_099",
+      "text": "还记得您的FIRST_TRIP_ALONE吗？可以讲讲当时的情形吗？",
+      "primary_topic": "topic_066",
+      "tags": [
+        "人生第一次",
+        "FIRST_TRIP_ALONE"
+      ],
+      "importance": 0.87,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": true,
+      "first_type": "FIRST_TRIP_ALONE"
+    },
+    {
+      "id": "q_100",
+      "text": "还记得您的FIRST_LOVE吗？可以讲讲当时的情形吗？",
+      "primary_topic": "topic_067",
+      "tags": [
+        "人生第一次",
+        "FIRST_LOVE"
+      ],
+      "importance": 0.55,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": true,
+      "first_type": "FIRST_LOVE"
+    },
+    {
+      "id": "q_101",
+      "text": "还记得您的FIRST_MARRIAGE吗？可以讲讲当时的情形吗？",
+      "primary_topic": "topic_068",
+      "tags": [
+        "人生第一次",
+        "FIRST_MARRIAGE"
+      ],
+      "importance": 0.63,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": true,
+      "first_type": "FIRST_MARRIAGE"
+    },
+    {
+      "id": "q_102",
+      "text": "还记得您的FIRST_PARENT吗？可以讲讲当时的情形吗？",
+      "primary_topic": "topic_069",
+      "tags": [
+        "人生第一次",
+        "FIRST_PARENT"
+      ],
+      "importance": 0.71,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": true,
+      "first_type": "FIRST_PARENT"
+    },
+    {
+      "id": "q_103",
+      "text": "还记得您的FIRST_HOME吗？可以讲讲当时的情形吗？",
+      "primary_topic": "topic_070",
+      "tags": [
+        "人生第一次",
+        "FIRST_HOME"
+      ],
+      "importance": 0.79,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": true,
+      "first_type": "FIRST_HOME"
+    },
+    {
+      "id": "q_104",
+      "text": "还记得您的FIRST_MAJOR_PURCHASE吗？可以讲讲当时的情形吗？",
+      "primary_topic": "topic_071",
+      "tags": [
+        "人生第一次",
+        "FIRST_MAJOR_PURCHASE"
+      ],
+      "importance": 0.87,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": true,
+      "first_type": "FIRST_MAJOR_PURCHASE"
+    },
+    {
+      "id": "q_105",
+      "text": "还记得您的FIRST_SUCCESS吗？可以讲讲当时的情形吗？",
+      "primary_topic": "topic_072",
+      "tags": [
+        "人生第一次",
+        "FIRST_SUCCESS"
+      ],
+      "importance": 0.55,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": true,
+      "first_type": "FIRST_SUCCESS"
+    },
+    {
+      "id": "q_106",
+      "text": "还记得您的FIRST_FAILURE吗？可以讲讲当时的情形吗？",
+      "primary_topic": "topic_073",
+      "tags": [
+        "人生第一次",
+        "FIRST_FAILURE"
+      ],
+      "importance": 0.63,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": true,
+      "first_type": "FIRST_FAILURE"
+    },
+    {
+      "id": "q_107",
+      "text": "还记得您的FIRST_LOSS吗？可以讲讲当时的情形吗？",
+      "primary_topic": "topic_074",
+      "tags": [
+        "人生第一次",
+        "FIRST_LOSS"
+      ],
+      "importance": 0.71,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": true,
+      "first_type": "FIRST_LOSS"
+    },
+    {
+      "id": "q_108",
+      "text": "还记得您的FIRST_RETIREMENT吗？可以讲讲当时的情形吗？",
+      "primary_topic": "topic_075",
+      "tags": [
+        "人生第一次",
+        "FIRST_RETIREMENT"
+      ],
+      "importance": 0.79,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": true,
+      "first_type": "FIRST_RETIREMENT"
+    },
+    {
+      "id": "q_109",
+      "text": "还记得您的FIRST_GRANDPARENT吗？可以讲讲当时的情形吗？",
+      "primary_topic": "topic_076",
+      "tags": [
+        "人生第一次",
+        "FIRST_GRANDPARENT"
+      ],
+      "importance": 0.87,
+      "required_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "时间",
+        "地点",
+        "人物",
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": true,
+      "first_type": "FIRST_GRANDPARENT"
+    },
+    {
+      "id": "q_110",
+      "text": "第一次领工资那天怎么花的？",
+      "primary_topic": "topic_020",
+      "tags": [
+        "补充"
+      ],
+      "importance": 0.7,
+      "required_slots": [
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_111",
+      "text": "离开家乡那天谁来送您？",
+      "primary_topic": "topic_020",
+      "tags": [
+        "补充"
+      ],
+      "importance": 0.7,
+      "required_slots": [
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_112",
+      "text": "您母亲最让您难忘的一件小事？",
+      "primary_topic": "topic_020",
+      "tags": [
+        "补充"
+      ],
+      "importance": 0.7,
+      "required_slots": [
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_113",
+      "text": "工作里遇到过最大的委屈是什么？",
+      "primary_topic": "topic_020",
+      "tags": [
+        "补充"
+      ],
+      "importance": 0.7,
+      "required_slots": [
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_114",
+      "text": "有没有差点改变人生轨迹的选择？",
+      "primary_topic": "topic_020",
+      "tags": [
+        "补充"
+      ],
+      "importance": 0.7,
+      "required_slots": [
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_115",
+      "text": "邻居里谁对您影响最大？",
+      "primary_topic": "topic_020",
+      "tags": [
+        "补充"
+      ],
+      "importance": 0.7,
+      "required_slots": [
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_116",
+      "text": "困难时期家里怎么过的？",
+      "primary_topic": "topic_020",
+      "tags": [
+        "补充"
+      ],
+      "importance": 0.7,
+      "required_slots": [
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_117",
+      "text": "第一次进城是什么感觉？",
+      "primary_topic": "topic_020",
+      "tags": [
+        "补充"
+      ],
+      "importance": 0.7,
+      "required_slots": [
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_118",
+      "text": "孩子出生那天您在做什么？",
+      "primary_topic": "topic_020",
+      "tags": [
+        "补充"
+      ],
+      "importance": 0.7,
+      "required_slots": [
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    },
+    {
+      "id": "q_119",
+      "text": "退休第一天您做了什么？",
+      "primary_topic": "topic_020",
+      "tags": [
+        "补充"
+      ],
+      "importance": 0.7,
+      "required_slots": [
+        "经过",
+        "感受"
+      ],
+      "covered_slots": [],
+      "missing_slots": [
+        "经过",
+        "感受"
+      ],
+      "coverage": 0.0,
+      "status": "open",
+      "first_experience_bonus": false,
+      "first_type": null
+    }
+  ]
+}

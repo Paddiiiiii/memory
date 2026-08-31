@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://memoir.local/schemas/person.json",
+  "title": "Person",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "aliases", "importance", "evidence"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "aliases": { "type": "array", "items": { "type": "string" } },
+    "relationship": { "type": ["string", "null"] },
+    "importance": { "type": "number", "minimum": 0, "maximum": 1 },
+    "first_mentioned_at": { "type": ["integer", "null"] },
+    "mention_count": { "type": "integer", "minimum": 0 },
+    "event_ids": { "type": "array", "items": { "type": "string" } },
+    "evidence": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    }
+  }
+}

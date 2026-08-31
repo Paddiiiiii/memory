@@ -1,0 +1,22 @@
+{
+  "ws_events": [
+    "transcript.partial",
+    "transcript.final",
+    "speaker.detected",
+    "analysis.started",
+    "analysis.completed",
+    "entity.person.added",
+    "entity.person.updated",
+    "event.added",
+    "event.updated",
+    "timeline.updated",
+    "question.coverage_updated",
+    "open_loop.added",
+    "gap.detected",
+    "conflict.detected",
+    "suggestion.updated",
+    "network.status",
+    "recording.health",
+    "session.status"
+  ]
+}

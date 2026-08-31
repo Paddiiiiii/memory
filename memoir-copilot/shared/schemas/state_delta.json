@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://memoir.local/schemas/state_delta.json",
+  "title": "StateDelta",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["delta_id", "analyzer", "window", "items"],
+  "properties": {
+    "delta_id": { "type": "string" },
+    "analyzer": {
+      "type": "string",
+      "enum": ["WINDOW_ANALYZER", "GLOBAL_ANALYZER", "FINAL_COVERAGE", "TRANSCRIPT_CLEANER"]
+    },
+    "window": {
+      "type": "object",
+      "required": ["start_ms", "end_ms"],
+      "properties": {
+        "start_ms": { "type": "integer", "minimum": 0 },
+        "end_ms": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["op", "entity_type"],
+        "properties": {
+          "op": { "type": "string", "enum": ["upsert", "add_claim", "resolve", "open_loop", "gap", "conflict", "coverage"] },
+          "entity_type": {
+            "type": "string",
+            "enum": ["person", "place", "event", "relationship", "question", "open_loop", "gap", "conflict", "theme", "first_experience"]
+          },
+          "payload": { "type": "object" },
+          "evidence": { "type": "array", "items": { "type": "string" } },
+          "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    }
+  }
+}

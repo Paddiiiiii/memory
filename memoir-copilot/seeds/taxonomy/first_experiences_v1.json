@@ -1,0 +1,20 @@
+{
+  "version": "first_experience_v1",
+  "types": [
+    "FIRST_SCHOOL",
+    "FIRST_JOB",
+    "FIRST_SALARY",
+    "FIRST_LEAVE_HOME",
+    "FIRST_TRIP_ALONE",
+    "FIRST_LOVE",
+    "FIRST_MARRIAGE",
+    "FIRST_PARENT",
+    "FIRST_HOME",
+    "FIRST_MAJOR_PURCHASE",
+    "FIRST_SUCCESS",
+    "FIRST_FAILURE",
+    "FIRST_LOSS",
+    "FIRST_RETIREMENT",
+    "FIRST_GRANDPARENT"
+  ]
+}

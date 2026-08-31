@@ -1,0 +1,29 @@
+# Secrets & local env
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Node / frontend
+node_modules/
+dist/
+
+# Rust / Tauri
+target/
+src-tauri/gen/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local test / build artifacts
+audio_sine_out/
+audio_test_out/
+*.log

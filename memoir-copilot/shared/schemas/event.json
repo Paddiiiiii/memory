@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://memoir.local/schemas/event.json",
+  "title": "LifeEvent",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "title", "importance", "summary", "evidence"],
+  "properties": {
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "category": { "type": ["string", "null"] },
+    "importance": { "type": "number", "minimum": 0, "maximum": 1 },
+    "time": { "$ref": "fuzzy_time.json" },
+    "people_ids": { "type": "array", "items": { "type": "string" } },
+    "place_ids": { "type": "array", "items": { "type": "string" } },
+    "summary": { "type": "string" },
+    "completeness": {
+      "type": "object",
+      "properties": {
+        "cause": { "type": "boolean" },
+        "process": { "type": "boolean" },
+        "outcome": { "type": "boolean" },
+        "emotion": { "type": "boolean" },
+        "people": { "type": "boolean" },
+        "place": { "type": "boolean" }
+      }
+    },
+    "missing": { "type": "array", "items": { "type": "string" } },
+    "is_first_experience": { "type": "boolean" },
+    "first_type": {
+      "type": ["string", "null"],
+      "enum": [
+        null,
+        "FIRST_SCHOOL",
+        "FIRST_JOB",
+        "FIRST_SALARY",
+        "FIRST_LEAVE_HOME",
+        "FIRST_TRIP_ALONE",
+        "FIRST_LOVE",
+        "FIRST_MARRIAGE",
+        "FIRST_PARENT",
+        "FIRST_HOME",
+        "FIRST_MAJOR_PURCHASE",
+        "FIRST_SUCCESS",
+        "FIRST_FAILURE",
+        "FIRST_LOSS",
+        "FIRST_RETIREMENT",
+        "FIRST_GRANDPARENT"
+      ]
+    },
+    "evidence": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    }
+  }
+}
