@@ -77,14 +77,19 @@ pub struct RecoveryManifest {
 
 struct SharedState {
     samples: VecDeque<f32>,
+    /// Ring buffer for live ASR streaming (mono f32). Capped ~5s.
+    asr_pcm: VecDeque<f32>,
     writing: bool,
 }
+
+const ASR_PCM_CAP_SECS: usize = 5;
 
 pub struct Recorder {
     stop: Arc<AtomicBool>,
     active_ms: Arc<AtomicU64>,
     health: Arc<Mutex<HealthSnapshot>>,
     meta: Arc<Mutex<Vec<ChunkMeta>>>,
+    shared: Arc<Mutex<SharedState>>,
     join: Option<JoinHandle<Result<(), AudioError>>>,
     stream: Option<cpal::Stream>,
     session_dir: PathBuf,
@@ -144,6 +149,7 @@ impl Recorder {
         let meta = Arc::new(Mutex::new(Vec::new()));
         let shared = Arc::new(Mutex::new(SharedState {
             samples: VecDeque::new(),
+            asr_pcm: VecDeque::new(),
             writing: true,
         }));
 
@@ -205,11 +211,39 @@ impl Recorder {
             active_ms,
             health,
             meta,
+            shared,
             join: Some(join),
             stream: Some(stream),
             session_dir,
             sample_rate,
         })
+    }
+
+    pub fn sample_rate(&self) -> u32 {
+        self.sample_rate
+    }
+
+    /// Drain mono PCM as little-endian i16, optionally resampled to `target_hz` (e.g. 16000 for Tencent ASR).
+    pub fn drain_pcm_i16(&self, max_samples: usize, target_hz: u32) -> Vec<i16> {
+        let mut raw = Vec::new();
+        if let Ok(mut st) = self.shared.lock() {
+            let take = st.asr_pcm.len().min(max_samples.max(1));
+            raw.extend(st.asr_pcm.drain(..take));
+        }
+        if raw.is_empty() {
+            return Vec::new();
+        }
+        let mono = if target_hz > 0 && target_hz != self.sample_rate {
+            resample_linear(&raw, self.sample_rate, target_hz)
+        } else {
+            raw
+        };
+        mono.into_iter()
+            .map(|s| {
+                let c = (s * i16::MAX as f32).clamp(i16::MIN as f32, i16::MAX as f32);
+                c as i16
+            })
+            .collect()
     }
 
     pub fn health(&self) -> HealthSnapshot {
@@ -322,9 +356,32 @@ fn push_samples(
 
     if let Ok(mut st) = shared.lock() {
         if st.writing {
-            st.samples.extend(mono);
+            st.samples.extend(mono.iter().copied());
+        }
+        // Live ASR ring buffer (independent of FLAC writer drain)
+        st.asr_pcm.extend(mono.iter().copied());
+        let cap = sample_rate as usize * ASR_PCM_CAP_SECS;
+        while st.asr_pcm.len() > cap {
+            st.asr_pcm.pop_front();
         }
     }
+}
+
+fn resample_linear(input: &[f32], from_hz: u32, to_hz: u32) -> Vec<f32> {
+    if input.is_empty() || from_hz == 0 || to_hz == 0 || from_hz == to_hz {
+        return input.to_vec();
+    }
+    let ratio = from_hz as f64 / to_hz as f64;
+    let out_len = ((input.len() as f64) / ratio).floor() as usize;
+    let mut out = Vec::with_capacity(out_len);
+    for i in 0..out_len {
+        let src = i as f64 * ratio;
+        let i0 = src.floor() as usize;
+        let i1 = (i0 + 1).min(input.len() - 1);
+        let t = (src - i0 as f64) as f32;
+        out.push(input[i0] * (1.0 - t) + input[i1] * t);
+    }
+    out
 }
 
 fn writer_loop(

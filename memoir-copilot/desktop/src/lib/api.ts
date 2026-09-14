@@ -11,20 +11,19 @@ function authHeaders(): HeadersInit {
   return access ? { Authorization: `Bearer ${access}` } : {};
 }
 
-async function refreshIfNeeded(res: Response): Promise<Response | null> {
-  if (res.status !== 401) return null;
+async function tryRefresh(): Promise<boolean> {
   const refresh = localStorage.getItem("refresh_token");
-  if (!refresh) return null;
+  if (!refresh) return false;
   const r = await fetch(`${BASE}/v1/auth/refresh`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ refresh_token: refresh, device_id: localStorage.getItem("device_id") }),
   });
-  if (!r.ok) return null;
+  if (!r.ok) return false;
   const data = (await r.json()) as TokenPair;
   localStorage.setItem("access_token", data.access_token);
   localStorage.setItem("refresh_token", data.refresh_token);
-  return data as unknown as Response;
+  return true;
 }
 
 export async function api<T>(path: string, init: RequestInit = {}): Promise<T> {
@@ -35,8 +34,8 @@ export async function api<T>(path: string, init: RequestInit = {}): Promise<T> {
   };
   let res = await fetch(`${BASE}${path}`, { ...init, headers });
   if (res.status === 401) {
-    const refreshed = await refreshIfNeeded(res);
-    if (refreshed) {
+    const ok = await tryRefresh();
+    if (ok) {
       res = await fetch(`${BASE}${path}`, {
         ...init,
         headers: { ...headers, ...authHeaders() },
@@ -66,7 +65,9 @@ export const AuthApi = {
     });
   },
   me() {
-    return api<{ id: string; email: string; role: string; display_name: string }>("/v1/auth/me");
+    return api<{ id: string; email: string; role: string; display_name: string; must_change_password: boolean }>(
+      "/v1/auth/me",
+    );
   },
 };
 
@@ -129,12 +130,52 @@ export const SessionApi = {
   suggestions(sessionId: string) {
     return api<Array<{ id: string; text: string; score: number }>>(`/v1/sessions/${sessionId}/suggestions`);
   },
+  questionAction(sessionId: string, question_id: string, action: string) {
+    return api(`/v1/sessions/${sessionId}/questions/actions`, {
+      method: "POST",
+      body: JSON.stringify({ question_id, action }),
+    });
+  },
+  postSegment(
+    sessionId: string,
+    body: {
+      sequence_number: number;
+      speaker_id: string;
+      start_ms: number;
+      end_ms: number;
+      raw_text: string;
+      confidence?: number;
+      source?: string;
+    },
+  ) {
+    return api(`/v1/sessions/${sessionId}/transcript/segments`, {
+      method: "POST",
+      body: JSON.stringify(body),
+      headers: { "Idempotency-Key": `seg-${body.sequence_number}` },
+    });
+  },
   finalReview(sessionId: string) {
     return api(`/v1/sessions/${sessionId}/analysis/final`, { method: "POST" });
   },
   exportUrl(sessionId: string, format: "json" | "srt" | "vtt" | "markdown" | "txt", layer?: string) {
-    const base = import.meta.env.VITE_API_BASE || "http://127.0.0.1:8000";
     const q = layer ? `?layer=${layer}` : "";
-    return `${base}/v1/sessions/${sessionId}/export/${format}${q}`;
+    return `${BASE}/v1/sessions/${sessionId}/export/${format}${q}`;
   },
 };
+
+export const AsrApi = {
+  realtimeTicket(sessionId: string, voiceId: string) {
+    return api<{
+      wss_url: string;
+      expire_at: number;
+      sample_rate: number;
+      voice_id: string;
+      engine_model_type: string;
+    }>("/v1/asr/realtime-ticket", {
+      method: "POST",
+      body: JSON.stringify({ session_id: sessionId, voice_id: voiceId }),
+    });
+  },
+};
+
+export { BASE as API_BASE };

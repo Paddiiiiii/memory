@@ -201,11 +201,22 @@ async def finishing_complete(
     if body.active_recording_ms is not None:
         session.active_recording_ms = body.active_recording_ms
     session.finished_at = utcnow()
-    session.status = SessionStatus.PROCESSING.value
-    await db.commit()
-    # processing tasks may fail/retry; never block transition
     if session.cloud_processing_enabled:
+        session.status = SessionStatus.PROCESSING.value
+        await db.commit()
+        # processing tasks may fail/retry; never block transition
         enqueue_session_processing.delay(str(session.id))
+    else:
+        # Local-only: no cloud worker — promote live → final and complete.
+        from app.services.state.merge import empty_interview_state
+
+        final = dict(session.live_state or empty_interview_state("session_final"))
+        final["scope"] = "session_final"
+        session.final_state = final
+        session.final_state_version = int(final.get("version") or 1)
+        session.status = SessionStatus.COMPLETED.value
+        session.postprocess_quality = "local_only"
+        await db.commit()
     await db.refresh(session)
     return session
 

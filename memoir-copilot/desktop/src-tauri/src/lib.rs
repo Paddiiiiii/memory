@@ -77,6 +77,22 @@ fn stop_recording() -> Result<RecoveryManifest, String> {
     rec.stop().map_err(|e| e.to_string())
 }
 
+#[tauri::command]
+fn drain_pcm_for_asr(max_samples: Option<usize>) -> Result<serde_json::Value, String> {
+    let guard = AUDIO.recorder.lock();
+    let rec = guard.as_ref().ok_or_else(|| "not recording".to_string())?;
+    let samples = rec.drain_pcm_i16(max_samples.unwrap_or(16_000), 16_000);
+    let mut bytes = Vec::with_capacity(samples.len() * 2);
+    for s in &samples {
+        bytes.extend_from_slice(&s.to_le_bytes());
+    }
+    Ok(serde_json::json!({
+        "sample_rate": 16000,
+        "pcm_base64": base64::Engine::encode(&base64::engine::general_purpose::STANDARD, &bytes),
+        "samples": samples.len(),
+    }))
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
@@ -88,7 +104,8 @@ pub fn run() {
             start_recording,
             recording_health,
             recording_active_ms,
-            stop_recording
+            stop_recording,
+            drain_pcm_for_asr
         ])
         .setup(|app| {
             let _ = app.path().app_data_dir();

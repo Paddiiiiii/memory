@@ -61,7 +61,7 @@ def main() -> int:
         headers=headers,
         json={"recovery_manifest": {"chunks_finalized": True, "source": "p1_smoke"}, "active_recording_ms": 2500},
     ).json()
-    assert done["status"] == "processing", done
+    assert done["status"] == "completed", done  # local-only finishes without cloud worker
     srt = c.get(f"/v1/sessions/{sid}/export/srt", headers=headers)
     js = c.get(f"/v1/sessions/{sid}/export/json", headers=headers)
     assert srt.status_code == 200 and "武汉" in srt.text

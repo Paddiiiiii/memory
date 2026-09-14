@@ -17,21 +17,25 @@ from app.services.auth import service as auth_service
 
 router = APIRouter(tags=["media-questions"])
 
-QUESTION_BANK_PATH = (
-    Path(__file__).resolve().parents[4] / "seeds" / "question_bank" / "question_bank_v1.json"
-)
+QUESTION_BANK_PATH = None  # resolved at call time via paths.question_bank_path()
 ALLOWED_MEDIA = {
     "image/jpeg": ".jpg",
     "image/png": ".png",
     "image/heic": ".heic",
     "application/pdf": ".pdf",
+    "audio/flac": ".flac",
+    "audio/wav": ".wav",
+    "audio/x-flac": ".flac",
 }
 
 
 def load_question_bank() -> dict[str, Any]:
-    if not QUESTION_BANK_PATH.exists():
+    from app.core.paths import question_bank_path
+
+    path = question_bank_path()
+    if not path.exists():
         return {"version": "missing", "topics": [], "questions": []}
-    return json.loads(QUESTION_BANK_PATH.read_text(encoding="utf-8"))
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 class InjectQuestionsIn(BaseModel):
@@ -102,26 +106,26 @@ async def upload_media(
 ) -> dict:
     project = await get_owned_project(project_id, user, db)
     mime = file.content_type or "application/octet-stream"
-    if mime not in ALLOWED_MEDIA and not mime.startswith("image/"):
-        # allow listed + generic image/*
-        if mime not in ALLOWED_MEDIA:
-            raise HTTPException(400, f"不支持的类型: {mime}")
+    allowed = mime in ALLOWED_MEDIA or mime.startswith("image/") or mime.startswith("audio/")
+    if not allowed:
+        raise HTTPException(400, f"不支持的类型: {mime}")
     data = await file.read()
-    if len(data) > 50 * 1024 * 1024:
-        raise HTTPException(400, "文件过大（上限 50MB）")
+    if len(data) > 200 * 1024 * 1024:
+        raise HTTPException(400, "文件过大（上限 200MB）")
     asset_id = new_id()
     ext = ALLOWED_MEDIA.get(mime, Path(file.filename or "bin").suffix or ".bin")
-    # Local-dev storage under backend/.data/media (COS later)
+    # Local-dev storage under backend/.data/media (COS optional later)
     root = Path(__file__).resolve().parents[3] / ".data" / "media" / str(project.id)
     root.mkdir(parents=True, exist_ok=True)
     storage_key = f"{project.id}/{asset_id}{ext}"
     (root / f"{asset_id}{ext}").write_bytes(data)
+    asset_type = "audio_chunk" if mime.startswith("audio/") else "artifact"
     asset = MediaAsset(
         id=asset_id,
         project_id=project.id,
         session_id=session_id,
-        type="artifact",
-        title=title or (file.filename or "artifact"),
+        type=asset_type,
+        title=title or (file.filename or asset_type),
         description=description,
         approx_year=approx_year,
         event_id=event_id,
@@ -141,7 +145,7 @@ async def upload_media(
         meta={"mime": mime, "bytes": len(data)},
     )
     await db.commit()
-    return {"id": str(asset.id), "storage_key": storage_key, "type": "artifact"}
+    return {"id": str(asset.id), "storage_key": storage_key, "type": asset_type}
 
 
 @router.get("/projects/{project_id}/media")

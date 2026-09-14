@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+import json
 import logging
 from typing import Any
 
@@ -8,7 +9,8 @@ from sqlalchemy import select
 
 from app.core.config import get_settings
 from app.core.database import SessionLocal
-from app.models import AnalysisRun, InterviewSession, TranscriptSegment
+from app.core.paths import prompts_dir
+from app.models import AnalysisRun, InterviewSession, PromptVersion, TranscriptSegment
 from app.providers.llm import LLMProvider, get_llm_provider
 from app.providers.model_registry import resolve_model
 from app.services.state.merge import apply_delta, empty_interview_state, validate_delta_evidence
@@ -18,7 +20,28 @@ logger = logging.getLogger(__name__)
 
 
 def _run(coro):
-    return asyncio.get_event_loop().run_until_complete(coro)
+    return asyncio.run(coro)
+
+
+async def _resolve_prompt(db, prompt_name: str, fallback: str) -> str:
+    result = await db.execute(
+        select(PromptVersion)
+        .where(PromptVersion.prompt_name == prompt_name, PromptVersion.active.is_(True))
+        .limit(1)
+    )
+    row = result.scalar_one_or_none()
+    if row and row.prompt_text:
+        return row.prompt_text
+    seeds = prompts_dir()
+    if seeds.exists():
+        for path in seeds.glob("*.json"):
+            try:
+                data = json.loads(path.read_text(encoding="utf-8"))
+            except Exception:  # noqa: BLE001
+                continue
+            if data.get("prompt_name") == prompt_name and data.get("prompt_text"):
+                return data["prompt_text"]
+    return fallback
 
 
 async def _load_segments(session_id, start_ms: int, end_ms: int) -> list[TranscriptSegment]:
@@ -90,9 +113,11 @@ async def _run_window(session_id: str, end_ms: int) -> dict[str, Any]:
         ]
         resolved = resolve_model("WINDOW_ANALYZER")
         llm: LLMProvider = get_llm_provider()
-        prompt = (
+        prompt = await _resolve_prompt(
+            db,
+            "WINDOW_ANALYZER",
             "You are WINDOW_ANALYZER. Return JSON StateDelta only. "
-            "Every fact must include evidence segment_ids. No chain-of-thought."
+            "Every fact must include evidence segment_ids. No chain-of-thought.",
         )
         raw = await llm.structured(
             model=resolved.model_id,
@@ -160,10 +185,18 @@ async def _run_named(session_id: str, role: str, prompt_version: str, effort: st
             return {"skipped": True}
         resolved = resolve_model(role)
         llm = get_llm_provider()
+        prompt = await _resolve_prompt(
+            db,
+            role if role != "FINAL_REVIEW" else "FINAL_COVERAGE",
+            f"You are {role}. Return JSON findings/suggestions only. Evidence required. No CoT.",
+        )
+        # seed file uses FINAL_COVERAGE naming; also try FINAL_REVIEW
+        if prompt.startswith("You are ") and role == "FINAL_REVIEW":
+            prompt = await _resolve_prompt(db, "FINAL_REVIEW", prompt)
         raw = await llm.structured(
             model=resolved.model_id,
             reasoning_effort=effort or resolved.reasoning_effort,
-            system=f"You are {role}. Return JSON findings/suggestions only. Evidence required. No CoT.",
+            system=prompt,
             user={"state": session.live_state},
         )
         run = AnalysisRun(

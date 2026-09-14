@@ -3,17 +3,20 @@ from __future__ import annotations
 
 import asyncio
 import json
-from pathlib import Path
 
 from sqlalchemy import select
 
 from app.core.database import SessionLocal
+from app.core.paths import prompts_dir
 from app.models import PromptVersion, new_id, utcnow
 
-SEEDS = Path(__file__).resolve().parents[2] / "seeds" / "prompts"
+SEEDS = prompts_dir()
 
 
 async def main() -> None:
+    if not SEEDS.exists():
+        print("seeds/prompts missing:", SEEDS)
+        return
     async with SessionLocal() as db:
         for path in sorted(SEEDS.glob("*.json")):
             data = json.loads(path.read_text(encoding="utf-8"))
@@ -27,7 +30,6 @@ async def main() -> None:
                 print("skip", path.name)
                 continue
             if data.get("active"):
-                # deactivate older actives for same name
                 existing = await db.execute(
                     select(PromptVersion).where(
                         PromptVersion.prompt_name == data["prompt_name"],

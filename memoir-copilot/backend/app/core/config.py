@@ -33,12 +33,15 @@ class Settings(BaseSettings):
     openai_api_key: str = ""
     openai_base_url: str = "https://api.openai.com/v1"
 
-    window_analyzer_model: str = "gpt-5.6-luna"
-    global_analyzer_model: str = "gpt-5.6-terra"
-    final_review_model: str = "gpt-5.6-sol"
-    transcript_cleaner_model: str = "gpt-5.6-terra"
+    # Defaults are real OpenAI model IDs — override in .env for your gateway.
+    window_analyzer_model: str = "gpt-4o-mini"
+    global_analyzer_model: str = "gpt-4o-mini"
+    final_review_model: str = "gpt-4o"
+    transcript_cleaner_model: str = "gpt-4o-mini"
     third_opinion_asr_model: str = "gpt-4o-transcribe"
-    watch_asr_model: str = "gpt-transcribe"
+    watch_asr_model: str = "gpt-4o-transcribe"
+
+    memoir_seeds_dir: str = ""
 
     llm_soft_limit_usd: float = 2.0
     llm_hard_limit_usd: float = 5.0

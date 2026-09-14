@@ -25,6 +25,12 @@ export type RecoveryManifest = {
   active_recording_ms: number;
 };
 
+export type PcmChunk = {
+  sample_rate: number;
+  pcm_base64: string;
+  samples: number;
+};
+
 export function isTauri(): boolean {
   return typeof window !== "undefined" && !!(window as unknown as { __TAURI_INTERNALS__?: unknown }).__TAURI_INTERNALS__;
 }
@@ -47,4 +53,8 @@ export async function nativeHealth(): Promise<HealthSnapshot> {
 
 export async function nativeActiveMs(): Promise<number> {
   return invoke("recording_active_ms");
+}
+
+export async function drainPcmForAsr(maxSamples = 16000): Promise<PcmChunk> {
+  return invoke("drain_pcm_for_asr", { maxSamples });
 }

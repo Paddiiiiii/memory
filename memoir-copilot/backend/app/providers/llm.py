@@ -23,7 +23,11 @@ class LLMProvider(Protocol):
 
 
 class OpenAIResponsesProvider:
-    """OpenAI Responses API adapter. Falls back to deterministic stub when no API key."""
+    """OpenAI-compatible adapter.
+
+    Prefers Chat Completions JSON mode (widely supported). Falls back to Responses API.
+    When no API key: returns empty StateDelta stub (dev-only; logged as warning).
+    """
 
     async def structured(
         self,
@@ -35,26 +39,45 @@ class OpenAIResponsesProvider:
     ) -> Any:
         settings = get_settings()
         if not settings.openai_api_key:
+            logger.warning("OPENAI_API_KEY 未配置，LLM 返回 stub（不会写入真实分析）")
             return self._stub(user)
-        payload: dict[str, Any] = {
-            "model": model,
-            "input": [
-                {"role": "system", "content": system},
-                {"role": "user", "content": json.dumps(user, ensure_ascii=False)},
-            ],
-            "text": {"format": {"type": "json_object"}},
-        }
-        if reasoning_effort and reasoning_effort != "none":
-            payload["reasoning"] = {"effort": reasoning_effort}
+
+        user_text = json.dumps(user, ensure_ascii=False)
+        headers = {"Authorization": f"Bearer {settings.openai_api_key}"}
         async with httpx.AsyncClient(base_url=settings.openai_base_url, timeout=120.0) as client:
-            resp = await client.post(
-                "/responses",
-                headers={"Authorization": f"Bearer {settings.openai_api_key}"},
-                json=payload,
-            )
+            # 1) Chat Completions — works with OpenAI + most compatible gateways
+            chat_payload: dict[str, Any] = {
+                "model": model,
+                "messages": [
+                    {"role": "system", "content": system},
+                    {"role": "user", "content": user_text},
+                ],
+                "response_format": {"type": "json_object"},
+                "temperature": 0.2,
+            }
+            chat = await client.post("/chat/completions", headers=headers, json=chat_payload)
+            if chat.status_code < 400:
+                data = chat.json()
+                text = (
+                    ((data.get("choices") or [{}])[0].get("message") or {}).get("content") or ""
+                ).strip()
+                if text:
+                    return json.loads(text)
+
+            # 2) Responses API fallback (newer OpenAI surface)
+            resp_payload: dict[str, Any] = {
+                "model": model,
+                "input": [
+                    {"role": "system", "content": system},
+                    {"role": "user", "content": user_text},
+                ],
+                "text": {"format": {"type": "json_object"}},
+            }
+            if reasoning_effort and reasoning_effort != "none":
+                resp_payload["reasoning"] = {"effort": reasoning_effort}
+            resp = await client.post("/responses", headers=headers, json=resp_payload)
             resp.raise_for_status()
             data = resp.json()
-            # Best-effort extract text
             text = data.get("output_text")
             if not text:
                 for item in data.get("output") or []:
@@ -67,7 +90,6 @@ class OpenAIResponsesProvider:
             return json.loads(text)
 
     def _stub(self, user: Any) -> dict[str, Any]:
-        """Offline-dev stub StateDelta — empty items so merge is no-op."""
         window = {}
         if isinstance(user, dict):
             window = user.get("window") or {"start_ms": 0, "end_ms": 0}

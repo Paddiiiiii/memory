@@ -3,6 +3,7 @@
     <div v-if="store.health === 'warn'" class="banner-warn">{{ store.healthMessage || "音频告警" }}</div>
     <div v-if="store.health === 'critical'" class="banner-danger">{{ store.healthMessage || "音频严重告警" }}</div>
     <div v-if="store.localOnly" class="banner-warn">仅本地录音模式 — 云端 ASR / AI 已关闭</div>
+    <div v-if="asrError" class="banner-warn">ASR: {{ asrError }}</div>
 
     <header class="top">
       <div class="rec">
@@ -10,6 +11,15 @@
         <strong>{{ store.status === "recording" ? "REC" : store.status.toUpperCase() }}</strong>
         <span class="time">{{ store.formatMs(store.activeMs) }}</span>
       </div>
+      <label class="device" v-if="useNative">
+        麦克风
+        <select v-model="selectedDevice" :disabled="store.status === 'recording'">
+          <option value="">系统默认</option>
+          <option v-for="d in devices" :key="d.name" :value="d.name">
+            {{ d.name }}{{ d.is_default ? "（默认）" : "" }}
+          </option>
+        </select>
+      </label>
       <div class="meter">
         MIC
         <div class="bar"><i :style="{ width: Math.min(100, store.micLevel * 400) + '%' }" /></div>
@@ -41,6 +51,9 @@
             <p>{{ s.text }}</p>
           </article>
           <p v-if="store.partialText" class="partial">{{ store.partialText }}</p>
+          <p v-if="!store.segments.length && !store.partialText" class="muted">
+            {{ store.localOnly ? "本地模式不会出实时字幕；结束后可导出标记/笔记。" : "开始采访后将显示实时字幕…" }}
+          </p>
         </div>
         <button v-if="!stickBottom" class="jump" @click="jumpBottom">↓ 回到实时</button>
       </section>
@@ -53,12 +66,23 @@
             <small v-if="q.score != null">{{ q.score.toFixed(2) }}</small>
           </li>
         </ol>
-        <p v-if="!store.suggestions.length" class="muted">暂无推荐（需云端分析或问题库加载）</p>
+        <p v-if="!store.suggestions.length" class="muted">暂无推荐（需问题库或云端分析）</p>
       </aside>
 
       <section class="questions">
         <h2>动态问题清单</h2>
-        <p class="muted">置顶 / 已问 / 忽略 / 稍后 — 回写 Question State</p>
+        <div class="q-list">
+          <div v-for="q in visibleQuestions" :key="q.id" class="q-item">
+            <div class="q-text">{{ q.text || q.prompt || q.id }}</div>
+            <div class="q-actions">
+              <button @click="doQuestionAction(q.id, 'pin')">置顶</button>
+              <button @click="doQuestionAction(q.id, 'asked')">已问</button>
+              <button @click="doQuestionAction(q.id, 'later')">稍后</button>
+              <button @click="doQuestionAction(q.id, 'ignore')">忽略</button>
+            </div>
+          </div>
+          <p v-if="!visibleQuestions.length" class="muted">问题库将在创建 Session 时自动载入</p>
+        </div>
       </section>
 
       <aside class="side">
@@ -84,7 +108,9 @@
             <p v-if="!loops.length" class="muted">开放话题</p>
           </template>
           <template v-else>
-            <p class="muted">问题覆盖与 Topic 树</p>
+            <div v-for="q in visibleQuestions.slice(0, 12)" :key="'s-' + q.id" class="tl">
+              {{ q.text || q.prompt || q.id }}
+            </div>
           </template>
         </div>
       </aside>
@@ -95,15 +121,18 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from "vue";
 import { useInterviewStore } from "../stores/interview";
-import { SessionApi } from "../lib/api";
+import { API_BASE, SessionApi } from "../lib/api";
 import { playSyncTone } from "../lib/audio";
 import { LocalOutbox } from "../lib/outbox";
+import { TencentLiveAsr } from "../lib/tencentAsr";
 import {
   isTauri,
+  listAudioDevices,
   nativeActiveMs,
   nativeHealth,
   startNativeRecording,
   stopNativeRecording,
+  type DeviceInfo,
 } from "../lib/nativeAudio";
 
 const props = defineProps<{ sessionId: string }>();
@@ -113,12 +142,23 @@ const scroller = ref<HTMLElement | null>(null);
 const statePayload = ref<Record<string, unknown>>({});
 const audioDir = ref("");
 const useNative = isTauri();
+const devices = ref<DeviceInfo[]>([]);
+const selectedDevice = ref("");
+const asrError = ref("");
 let seq = 0;
 let healthTimer: number | undefined;
+let stateTimer: number | undefined;
+let asr: TencentLiveAsr | null = null;
 
 const timeline = computed(() => (statePayload.value.timeline as Array<Record<string, string>>) || []);
 const people = computed(() => (statePayload.value.people as Array<Record<string, string>>) || []);
 const loops = computed(() => (statePayload.value.open_loops as Array<Record<string, string>>) || []);
+const visibleQuestions = computed(() => {
+  const qs = (statePayload.value.questions as Array<Record<string, unknown>>) || [];
+  return qs
+    .filter((q) => !q.session_ignored && q.status !== "asked")
+    .slice(0, 40) as Array<Record<string, string>>;
+});
 
 async function refreshState() {
   try {
@@ -132,25 +172,57 @@ async function refreshState() {
   }
 }
 
+async function startAsrIfNeeded() {
+  asrError.value = "";
+  if (store.localOnly) return;
+  try {
+    asr = new TencentLiveAsr(props.sessionId, {
+      onPartial: (t) => {
+        store.partialText = t;
+      },
+      onFinal: (seg) => {
+        store.segments.push({
+          id: crypto.randomUUID(),
+          speaker: seg.speaker,
+          startMs: seg.startMs,
+          endMs: seg.endMs,
+          text: seg.text,
+        });
+        if (stickBottom.value) jumpBottom();
+      },
+      onError: (e) => {
+        asrError.value = e;
+      },
+    });
+    await asr.start();
+  } catch (e) {
+    asrError.value = e instanceof Error ? e.message : String(e);
+    asr = null;
+  }
+}
+
 async function onStart() {
   if (!useNative) {
-    alert("P1 录音主路径仅支持 Tauri 原生 cpal。请用 memoir-audio-cli 或 tauri 桌面端，不要用浏览器 getUserMedia。");
+    alert("录音主路径仅支持 Tauri 原生 cpal。请运行 pnpm tauri:dev，不要用浏览器 getUserMedia。");
     return;
   }
   if (store.status === "idle") {
     await playSyncTone();
   }
   await SessionApi.start(props.sessionId);
-  audioDir.value = await startNativeRecording(props.sessionId);
+  audioDir.value = await startNativeRecording(
+    props.sessionId,
+    selectedDevice.value || undefined,
+  );
   store.status = "recording";
   store.startClock();
+  await startAsrIfNeeded();
   healthTimer = window.setInterval(async () => {
     try {
       const h = await nativeHealth();
       const ms = await nativeActiveMs();
       store.activeMs = ms;
       store.elapsedMs = ms;
-      // map dBFS to crude meter 0..1
       store.micLevel = Math.max(0, Math.min(1, (h.rms_dbfs + 60) / 60));
       store.health = h.level === "ok" ? "ok" : h.level === "critical" ? "critical" : "warn";
       store.healthMessage = h.message;
@@ -161,13 +233,25 @@ async function onStart() {
 }
 
 async function onPause() {
-  // P1: pause = stop native recorder (resume starts a new segment later)
   store.status = "paused";
   await SessionApi.pause(props.sessionId);
   if (healthTimer) window.clearInterval(healthTimer);
   healthTimer = undefined;
+  if (asr) {
+    await asr.stop();
+    asr = null;
+  }
   await stopNativeRecording();
   store.stopClock();
+}
+
+async function doQuestionAction(questionId: string, action: string) {
+  try {
+    await SessionApi.questionAction(props.sessionId, questionId, action);
+    await refreshState();
+  } catch (e) {
+    alert(e instanceof Error ? e.message : String(e));
+  }
 }
 
 function addMarker() {
@@ -185,9 +269,8 @@ function addMarker() {
     type: "marker",
     payload: { marker_type: "KEY_MOMENT", timestamp_ms: ts },
   });
-  const base = import.meta.env.VITE_API_BASE || "http://127.0.0.1:8000";
   const token = localStorage.getItem("access_token");
-  fetch(`${base}/v1/sessions/${props.sessionId}/markers`, {
+  fetch(`${API_BASE}/v1/sessions/${props.sessionId}/markers`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -214,9 +297,8 @@ function addNote() {
     type: "note",
     payload: { text, timestamp_ms: ts },
   });
-  const base = import.meta.env.VITE_API_BASE || "http://127.0.0.1:8000";
   const token = localStorage.getItem("access_token");
-  fetch(`${base}/v1/sessions/${props.sessionId}/notes`, {
+  fetch(`${API_BASE}/v1/sessions/${props.sessionId}/notes`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -226,12 +308,13 @@ function addNote() {
   }).catch(() => undefined);
 }
 
-function onChangeDirection() {
-  store.suggestions = [
-    { id: "d1", text: "换到未覆盖的「人生第一次」：第一次领工资？" },
-    { id: "d2", text: "回到低覆盖 Topic：家庭与祖辈" },
-    { id: "d3", text: "追问当前人物相关的一件具体事" },
-  ];
+async function onChangeDirection() {
+  await refreshState();
+  if (!store.suggestions.length) {
+    store.suggestions = [
+      { id: "fallback-1", text: "切换到未覆盖 Topic：人生第一次 / 家庭与祖辈", score: 0.5 },
+    ];
+  }
 }
 
 async function onClosing() {
@@ -246,9 +329,7 @@ async function onClosing() {
 function onExport(format: "json" | "srt" | "vtt" | "markdown" | "txt") {
   const url = SessionApi.exportUrl(props.sessionId, format);
   const a = document.createElement("a");
-  a.href = url;
   a.target = "_blank";
-  // bearer cannot be set on <a>; open with fetch blob
   const token = localStorage.getItem("access_token");
   fetch(url, { headers: token ? { Authorization: `Bearer ${token}` } : {} })
     .then((r) => r.blob())
@@ -268,6 +349,10 @@ async function onFinish() {
   await playSyncTone();
   if (healthTimer) window.clearInterval(healthTimer);
   healthTimer = undefined;
+  if (asr) {
+    await asr.stop();
+    asr = null;
+  }
   let manifest: Record<string, unknown> = {
     tracks: ["primary"],
     chunks_finalized: true,
@@ -275,7 +360,7 @@ async function onFinish() {
     audio_dir: audioDir.value,
   };
   try {
-    if (useNative && store.status !== "idle") {
+    if (useNative) {
       const m = await stopNativeRecording();
       manifest = {
         ...manifest,
@@ -289,13 +374,14 @@ async function onFinish() {
   }
   store.stopClock();
   await SessionApi.finish(props.sessionId);
-  await SessionApi.finishingComplete(
+  const done = await SessionApi.finishingComplete(
     props.sessionId,
     manifest,
     Math.floor(store.activeMs),
   );
   store.status = "idle";
-  alert("已进入 processing（云端任务可异步重试）");
+  const status = (done as { status?: string })?.status || "done";
+  alert(status === "completed" ? "采访已完成（本地模式）" : "已进入 processing（云端任务异步执行）");
 }
 
 function onScroll() {
@@ -331,14 +417,28 @@ function onKey(e: KeyboardEvent) {
   }
 }
 
-onMounted(() => {
-  refreshState();
+onMounted(async () => {
+  await refreshState();
+  stateTimer = window.setInterval(() => {
+    void refreshState();
+  }, 15_000);
+  if (useNative) {
+    try {
+      devices.value = await listAudioDevices();
+      const def = devices.value.find((d) => d.is_default);
+      if (def) selectedDevice.value = def.name;
+    } catch {
+      /* no devices in this environment */
+    }
+  }
   window.addEventListener("keydown", onKey);
 });
 onUnmounted(() => {
   store.stopClock();
   if (healthTimer) window.clearInterval(healthTimer);
+  if (stateTimer) window.clearInterval(stateTimer);
   window.removeEventListener("keydown", onKey);
+  if (asr) void asr.stop();
   if (useNative) {
     stopNativeRecording().catch(() => undefined);
   }
@@ -352,6 +452,8 @@ onUnmounted(() => {
   padding: 0.65rem 1rem; border-bottom: 1px solid var(--line); background: var(--panel);
 }
 .rec { display: flex; align-items: center; gap: 0.5rem; font-variant-numeric: tabular-nums; }
+.device { display: flex; align-items: center; gap: 0.35rem; color: var(--muted); font-size: 0.85rem; }
+.device select { max-width: 220px; }
 .dot { width: 10px; height: 10px; border-radius: 50%; background: #ccc; }
 .dot.on { background: var(--rec); box-shadow: 0 0 0 4px rgba(196,30,58,.15); }
 .meter { display: flex; align-items: center; gap: 0.4rem; color: var(--muted); font-size: 0.85rem; }
@@ -375,7 +477,17 @@ h2 { font-size: 0.95rem; margin: 0 0 0.5rem; font-weight: 600; }
 .suggest ol { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.6rem; }
 .suggest li { display: flex; justify-content: space-between; gap: 0.5rem; }
 .muted { color: var(--muted); font-size: 0.85rem; }
+.q-list { overflow: auto; max-height: 100%; display: grid; gap: 0.5rem; }
+.q-item { border-bottom: 1px solid var(--line); padding-bottom: 0.4rem; }
+.q-text { font-size: 0.9rem; margin-bottom: 0.25rem; }
+.q-actions { display: flex; gap: 0.25rem; flex-wrap: wrap; }
+.q-actions button { font-size: 0.75rem; padding: 0.15rem 0.4rem; }
 .side nav { display: flex; gap: 0.25rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
 .side nav button.on { border-color: var(--accent); color: var(--accent); }
 .tl, .loop { padding: 0.35rem 0; border-bottom: 1px solid var(--line); font-size: 0.9rem; }
+.banner-warn, .banner-danger {
+  padding: 0.4rem 1rem; font-size: 0.85rem;
+}
+.banner-warn { background: #fff7e6; color: #8a5a00; }
+.banner-danger { background: #ffe8e8; color: #a11; }
 </style>

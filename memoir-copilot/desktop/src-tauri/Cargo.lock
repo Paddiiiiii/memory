@@ -2007,17 +2007,29 @@ dependencies = [
 ]
 
 [[package]]
+name = "memoir-audio-core"
+version = "0.1.0"
+dependencies = [
+ "cpal",
+ "flacenc",
+ "serde",
+ "serde_json",
+ "sha2",
+ "thiserror 2.0.20",
+ "uuid",
+]
+
+[[package]]
 name = "memoir-copilot"
 version = "0.1.0"
 dependencies = [
+ "base64 0.22.1",
  "chrono",
- "cpal",
- "flacenc",
+ "memoir-audio-core",
  "once_cell",
  "parking_lot",
  "serde",
  "serde_json",
- "sha2",
  "tauri",
  "tauri-build",
  "tauri-plugin-fs",
